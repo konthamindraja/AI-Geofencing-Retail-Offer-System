@@ -1,0 +1,22 @@
+customer_behavior_task:
+  description: >
+    Analyze the following purchase history for customer {customer_id}: {purchase_history}.
+    Identify their favorite categories or items. Provide a short summary of their traits.
+  expected_output: >
+    A list of favorite items and categories and traits of the customer.
+  agent: customer_behavior_agent
+
+offer_recommendation_task:
+  description: >
+    Based on the identified customer traits and favorite items, create a short personalized offer string for the customer.
+    For example, "20% off fruits" or "Buy 1 get 1 free on dairy products".
+  expected_output: >
+    A short promotional message containing the offer in plain text.
+  agent: offer_recommendation_agent
+
+pos_integration_task:
+  description: >
+    Format the promotional offer string precisely so that it can directly integrate into the POS system. Exclude any introductory text, extra spaces, explanations, or conclusions from your response. Output *only* the exact offer string.
+  expected_output: >
+    The strict string containing only the personalized offer text. Nothing else.
+  agent: pos_integration_agent
